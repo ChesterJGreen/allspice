@@ -16,7 +16,7 @@ CREATE TABLE recipes(
   prepTime int COMMENT 'preparation time',
   creatorId VARCHAR(255) NOT NULL COMMENT 'account id of creator',
   FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
-) default charset utf8 ;
+) default charset utf8;
 CREATE TABLE steps (
   id int AUTO_INCREMENT NOT NULL primary key COMMENT 'primary key',
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
@@ -24,18 +24,20 @@ CREATE TABLE steps (
   body varchar(255) COMMENT 'body of the step',
   recipeId int NOT NULL COMMENT 'cooking time',
   creatorId VARCHAR(255) NOT NULL COMMENT 'account id of creator',
-   FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
-) default charset utf8 ;
-INSERT INTO recipes (
-  Title,
-  Description,
-  CookTime,
-  PrepTime
-   ) VALUES ( 
-  "cookies",
-  "This has everything on it",
-  20,
-  30
-);
-
+  FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
+) default charset utf8;
+INSERT INTO
+  recipes (
+    Title,
+    Description,
+    CookTime,
+    PrepTime
+  )
+VALUES
+  (
+    "cookies",
+    "This has everything on it",
+    20,
+    30
+  );
 DROP TABLE accounts
