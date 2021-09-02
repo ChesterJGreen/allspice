@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using allspice.Models;
 using allspice.Services;
@@ -25,8 +26,7 @@ namespace allspice.Controllers
         }
         catch (Exception err)
         {
-            
-            return BadRequest(err.Message);
+                        return BadRequest(err.Message);
         }
     }
   }

@@ -14,9 +14,9 @@ CREATE TABLE recipes(
   description VARCHAR(255) COMMENT 'description of recipe',
   cookTime int COMMENT 'cooking time',
   prepTime int COMMENT 'preparation time',
-  creatorId VARCHAR(255) NOT NULL DEFAULT '123' COMMENT 'account id of creator'
+  creatorId VARCHAR(255) NOT NULL COMMENT 'account id of creator',
+  FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 ;
-  -- FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 CREATE TABLE steps (
   id int AUTO_INCREMENT NOT NULL primary key COMMENT 'primary key',
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
@@ -32,10 +32,10 @@ INSERT INTO recipes (
   CookTime,
   PrepTime
    ) VALUES ( 
-  "Pizza",
+  "cookies",
   "This has everything on it",
   20,
   30
 );
 
-DROP TABLE recipes
+DROP TABLE accounts
