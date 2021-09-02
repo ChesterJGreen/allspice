@@ -39,7 +39,11 @@ namespace allspice
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "allspice", Version = "v1" });
             });
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
-            
+            services.AddTransient<RecipesRepository>();
+            services.AddTransient<StepsRepository>();
+            services.AddTransient<RecipesService>();
+            services.AddTransient<StepsService>();
+
             services.AddScoped<AccountsRepository>();
             services.AddScoped<AccountService>();
         }
